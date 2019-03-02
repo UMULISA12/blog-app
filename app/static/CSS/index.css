@@ -3,7 +3,11 @@ body{
 }
 
 a{
-    color: blanchedalmond;
+    color: white;
+    font-size: 20px;
+}
+a:hover{
+    color: aquamarine;
 }
 
 .card-body{
@@ -11,7 +15,9 @@ a{
     background-color: rgb(143, 151, 158);
     margin-left: 200px;
     margin-right: 200px;
-    opacity: 0.8;
+    /* opacity: 0.8; */
+    font-size: 30px;
+    color: white;
    
 }
 
