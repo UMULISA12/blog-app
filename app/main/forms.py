@@ -11,9 +11,9 @@ class BlogForm(FlaskForm):
     Submit = SubmitField('Submit')
 
 class SubscriberForm(FlaskForm):
-    Bio = TextAreaField('Tell us about you.',validators = [Required()])
-    Submit = SubmitField('Submit')
-
+    name = StringField("Enter your name")
+    email = StringField("Email", validators=[Required()])
+    submit= SubmitField('Subscribe')
 
 class CommentForm(FlaskForm):
     comment= TextAreaField('comment', validators=[Required()])

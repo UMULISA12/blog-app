@@ -340,8 +340,7 @@ def subscriber():
        subscriber= Subscriber(email=subscriber_form.email.data,name = subscriber_form.name.data)
        subscriber.save_subscriber()
 
-       mail_message("Hello, New post on let us B-l-o-g.", "welcome_subscriber", subscriber.email,
-                    subscriber=subscriber)
+       mail_message("Hello, New post on let us B-l-o-g.", "welcome_user", subscriber.email,subscriber=subscriber)
 
    subscriber = Blog.query.all()
 
