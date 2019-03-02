@@ -218,13 +218,15 @@
 
 
 
-from flask import render_template, redirect,url_for,abort
+from flask import render_template, redirect,url_for,abort,request
 from flask_login import login_required, current_user
 from . import main
 from .forms import BlogForm, CommentForm, SubscriberForm
-from ..models import Blog, Comment, User, Subscriber
+from ..models import Blog, Comment, User, Subscriber, Quote
 from ..email import mail_message
 from .. import db
+from ..request import get_quotes
+
 # import markdown2
 
 @main.route('/')

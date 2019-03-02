@@ -89,7 +89,6 @@ def load_user(user_id):
 
 
 class Quote:
-
     def __init__(self,id,author,quote):
         self.id =id
         self.author = author
