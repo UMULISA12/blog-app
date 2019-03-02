@@ -268,9 +268,9 @@ def new_comment(id):
 
     if form.validate_on_submit():
         writer = form.author.data
-        com = form.comment.data
+        comm = form.comment.data
 
-        new_comment = Comment(comment = com, blog_id = id, author= writer)
+        new_comment = Comment(comment = comm, blog_id = id, author= writer)
         new_comment.save_comment()
 
         return redirect(url_for('main.index'))
