@@ -17,10 +17,15 @@
 
 {% block content %}
 
+
 <div class="container-fluid">
   <h1>Welcome to the blogging web app, click here to write a blog<a class="btn btn-primary btn md" href="/new_blog" > New Blog</a></h1>
   <a href="/subscribe" style="float:right;">subscribe</a>
 </div>
+<blockquote class="text-center text-lg">
+    <h2> Random Quotes</h2>
+    <p>{{quote.quote}}</p>
+    <p class="sab">Author: {{quote.author}}</p>
 <br><br>
 {% for blog in blogs [::-1] %}
 

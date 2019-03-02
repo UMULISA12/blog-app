@@ -232,8 +232,9 @@ def index():
     '''
     function that returns the index page
     '''
+    quote = get_quotes()
     blogs = Blog.query.all()
-    return render_template('index.html', blogs = blogs)
+    return render_template('index.html', blogs = blogs, quote=quote)
 
 @main.route('/new_blog', methods = ['GET','POST'])
 @login_required
@@ -330,23 +331,39 @@ def delcomment(id):
     title = 'delete comments'
     return render_template('delete.html',title = title, comment = comment)
 
-@main.route('/subscribe', methods=['GET','POST'])
+# @main.route('/subscribe', methods=['GET','POST'])
+# def subscriber():
+
+#    subscriber_form=SubscriberForm()
+
+#    if subscriber_form.validate_on_submit():
+
+#        subscriber= Subscriber(email=subscriber_form.email.data,name = subscriber_form.name.data)
+#        subscriber.save_subscriber()
+
+#        mail_message("Hello, New post on let us B-l-o-g.", "welcome_user", subscriber.email,subscriber=subscriber)
+
+#    subscriber = Blog.query.all()
+
+#    blog = Blog.query.all()
+
+#    return render_template('subscription.html', subscriber=subscriber, subscriber_form=subscriber_form, blog=blog)
+
+@main.route('/subscribe',methods=["GET","POST"])
 def subscriber():
+    form=SubscriberForm()
 
-   subscriber_form=SubscriberForm()
+    if form.validate_on_submit():
+        subscriber = Subscriber(name=form.name.data,email=form.email.data)
+        db.session.add(subscriber)
+        db.session.commit()
 
-   if subscriber_form.validate_on_submit():
+        mail_message("Welcome to my blog","email/welcome_user",subscriber.email,subscriber=subscriber)
+        flash('A confirmation by email has been sent to you by email')
+        return redirect(url_for('main.index'))
+        title = 'Subscribe'
+    return render_template('subscription.html',form=form)
 
-       subscriber= Subscriber(email=subscriber_form.email.data,name = subscriber_form.name.data)
-       subscriber.save_subscriber()
-
-       mail_message("Hello, New post on let us B-l-o-g.", "welcome_user", subscriber.email,subscriber=subscriber)
-
-   subscriber = Blog.query.all()
-
-   blog = Blog.query.all()
-
-   return render_template('subscription.html', subscriber=subscriber, subscriber_form=subscriber_form, blog=blog)
 
 @main.route('/blog/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
