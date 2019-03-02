@@ -1,58 +1,49 @@
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best Movie Review website </title>
-        {% endif %}
-        {% extends 'base.html'%}
-        {% import 'macros.html' as macro%}
-
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
 <!-- Styles block -->
 
-        {% block styles%}
-        {{ super() }}
-        <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-        {% endblock %}
-        
-    </head>
-  
-    <body>
-   
-
-    <!-- Content block -->
-   
-    {% block content %}
-
+{% block content %}
 <div class="container">
-    <form>
-        <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
-        <input type="submit"  value="Submit" class="btn btn-default">
-    </form>
+<div class="parag1">
 
+    
+    <h1>Welcome to Blogs!</h1>
+<div class="container-fluid mt-3">
+ 
+ <p>Please sign up <a href="auth/register">here</a> to add a pitch</p>
+ <p>Already signed in? Write a pitch <a href="/new">here</a>.</p>
+</div>
 </div>
 
-    <!-- Popular movie -->
-    <h3> Popular Movies</h3>
-    <ul>
-        {{ macro.displayMovieList(popular)}}
-    </ul>
-    <!-- Upcoming movie  -->
-    <h3> Upcoming Movies </h3>
-    <ul>
-        {{ macro.displayMovieList(upcoming)}}
-    </ul>
-    <!-- Now showing movie -->
-    <h3>Now Showing</h3>
-    <ul>
-        {{ macro.displayMovieList(now_showing)}}
-    </ul>
+ <div class="row">
 
+   {{macro.displayPitchList(pitches)}}
+
+
+
+
+{% for pitch in all_pitches%}
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+<p class="card-title">Title: {{pitch.title}}</p>
+<p class="card-text">Category: {{pitch.category}}</p>
+<p class="card-text">Pitch: {{pitch.pitch}}</p>
+<p class="card-text">Author: {{pitch.author}}</p>
+
+{% for comment in pitch.comment %}
+<p>Comment:{{comment.description}}</p>
+
+<p><a class="btn btn-light btn-xl sr-button" href="{{url_for('main.comment',id = pitch.id)}}"> Add comment here</a></p> 
+<!-- <p><a href='/comment/new/{{pitch.id}}'>comment</a></p> -->
+</div>
+</div>
+</div>
+</div>
+
+<!-- </div> -->
+{% endfor %}
+<!-- <p><a href='/comment/new/{{pitch.id}}'></a></p>
+{% endfor %} -->
 
 {% endblock%}
-       
-</body>
-</html>
