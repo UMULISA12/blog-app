@@ -1,13 +1,13 @@
-body{
+/* body{
     background-image: url("https://www.si3.ae/wp-content/uploads/2018/08/Web-design-development-dubai.jpg");
-}
+} */
 
 a{
-    color: white;
+    color: blue;
     font-size: 20px;
 }
 a:hover{
-    color: aquamarine;
+    color: darkblue;
 }
 
 .card-body{
@@ -32,3 +32,14 @@ a:hover{
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
 }
+
+h1,h2{
+   font-family: monospace;
+   font-size: 26px;
+}
+
+hr.new1 {
+    border-top: 1px solid rgb(133, 128, 128);
+    margin-left: 100px;
+    margin-right: 100px;
+  }

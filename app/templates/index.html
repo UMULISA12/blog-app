@@ -16,27 +16,32 @@
   <h1>Welcome to the blogging web app, click here to write a blog &nbsp;<a class="btn btn-primary btn md" href="/new_blog" > New Blog</a></h1>
   <a href="/subscribe" style="float:right;">subscribe</a>
 </div>
+<div class="container">
 <blockquote class="text-center text-lg">
-    <h2>Inspirational Quotes</h2>
-    <p>{{quote.quote}}</p>
-    <p class="sab">Author: {{quote.author}}</p>
-<br><br>
-{% for blog in blogs [::-1] %}
+    <h2>Random Quotes</h2>
+    <p style="font-family:monospace;">{{quote.quote}}</p>
+    <p style="font-family: monospace;"><b>Author:</b> {{quote.author}}</p>
+    
+  </div>
+  <hr class="new1">
+  
+  <h3 style="text-align:center; font-family:monospace;">Read posted blogs here!</h3>
+{% for blog in blogs %}
 
 <div class="container-fluid">
   <div class="card-deck">
   <div class="card">
     <div class="card-header" style='text-align:center;'>
-      <!-- <h5>{{blog.username}}</h5> -->
     </div>
     <div class="card-body">
-      <p>{{blog.blog}}</p>
+      <p>Blog: {{blog.blog}}</p>
+      <a class="btn btn-primary btn-md" href="/new_comment/{{blog.id}}">Write comment</a>
       <a href="/comment/{{blog.id}}">View Comments</a>
     </div>
     <br>
     <div class="card-footer">
       <div class="container-fluid write">
-        <a class="btn btn-primary btn-md" href="/new_comment/{{blog.id}}">Write comment</a>
+        
       </div>
     </div>
   </div>
