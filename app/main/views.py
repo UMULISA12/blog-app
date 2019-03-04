@@ -266,6 +266,7 @@ def comment(id):
     return render_template('comment.html',title = title, comment = comment)
 
 @main.route('/new_comment/<int:id>', methods = ['GET', 'POST'])
+@login_required
 def new_comment(id):
     form = CommentForm()
 
@@ -309,16 +310,16 @@ def blog(id):
 
     return render_template('delete.html', title = title, blogs = post)
 
-@main.route('/pro-comment/<id>')
-@login_required
-def viewcomment(id):
-    '''
-    function to return the comments
-    '''
-    comment = Comment.get_comment(id)
-    print(comment)
-    title = 'comments'
-    return render_template('pro-comment.html',title = title, comment = comment)
+# @main.route('/pro-comment/<id>')
+# @login_required
+# def viewcomment(id):
+#     '''
+#     function to return the comments
+#     '''
+#     comment = Comment.get_comment(id)
+#     print(comment)
+#     title = 'comments'
+#     return render_template('pro-comment.html',title = title, comment = comment)
 
 @main.route('/del-comment/<id>')
 @login_required

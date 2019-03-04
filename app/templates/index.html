@@ -35,8 +35,35 @@
     </div>
     <div class="card-body">
       <p>Blog: {{blog.blog}}</p>
-      <a class="btn btn-primary btn-md" href="/new_comment/{{blog.id}}">Add comment</a>
+      <!-- <a class="btn btn-primary btn-md" href="/new_comment/{{blog.id}}">Add comment</a>
       <a class="btn btn-primary btn-md" href="/delete/{{blog.id}}">Delete blog</a>
+      <a href="#" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+         <span><strong>Delete blog</strong></span>            
+     </a> -->
+
+
+
+     <div class="container">
+      <div class="row">
+    <a href="/new_comment/{{blog.id}}" class="btn btn-primary a-btn-slide-text">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            <span><strong>Add comment</strong></span>            
+        </a>
+        <a href="#" class="btn btn-primary a-btn-slide-text">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            <span><strong>Edit a blog</strong></span>            
+        </a>
+        <a href="#" class="btn btn-primary a-btn-slide-text">
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+            <span><strong>View comments</strong></span>            
+        </a>
+        <a href="#" class="btn btn-primary a-btn-slide-text">
+           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            <span><strong>Delete a blog</strong></span>            
+        </a>
+      </div>
+    </div>
      
   
     <a href="/comment/{{blog.id}}" class="comment">View Comments</a>

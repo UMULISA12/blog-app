@@ -43,6 +43,14 @@ hr.new1 {
     margin-left: 100px;
     margin-right: 100px;
   }
+
 .comment{
     text-align: center;
+   
 }
+
+.card{
+ border-radius: 20px;
+}
+
+

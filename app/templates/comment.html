@@ -2,22 +2,22 @@
 
 {% block content %}
 
-
+<div class="card">
 
 {% for  description in comment %}
 <div class="container-fluid">
 <div class="card-deck">
-  <div class="card">
+  <div style="text-align:center;">
   <div class="card-title">
     <h5>Author: {{description.author}}</h5>
   </div>
-  <div class="card-body">
+  <!-- <div class="card-body"> -->
     <p>Comment: {{description.comment}}</p>
   </div>
 </div>
+</div>
+</div>
 
-</div>
-</div>
 
 {% endfor %}
 
