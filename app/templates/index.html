@@ -11,10 +11,10 @@
 
 {% block content %}
 
-
+<a href="/subscribe" style="float:right;">subscribe</a>
 <div class="container-fluid container">
   <h1>Welcome to the blogging web app, click here to write a blog &nbsp;<a class="btn btn-primary btn md" href="/new_blog" > New Blog</a></h1>
-  <a href="/subscribe" style="float:right;">subscribe</a>
+ 
 </div>
 <div class="container">
 <blockquote class="text-center text-lg">
@@ -35,10 +35,13 @@
     </div>
     <div class="card-body">
       <p>Blog: {{blog.blog}}</p>
-      <a class="btn btn-primary btn-md" href="/new_comment/{{blog.id}}">Write comment</a>
-      <a href="/comment/{{blog.id}}">View Comments</a>
-    </div>
-    <br>
+      <a class="btn btn-primary btn-md" href="/new_comment/{{blog.id}}">Add comment</a>
+      <a class="btn btn-primary btn-md" href="/delete/{{blog.id}}">Delete blog</a>
+     
+  
+    <a href="/comment/{{blog.id}}" class="comment">View Comments</a>
+  </div>
+    <!-- <br> -->
     <div class="card-footer">
       <div class="container-fluid write">
         
