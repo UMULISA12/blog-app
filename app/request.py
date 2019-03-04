@@ -1,18 +1,20 @@
 import urllib.request,json
 from .models import Quote
+from app import app
 # Getting api key
 # api_key = None
 # Getting the movie base url
 base_url = None
+base_url = app.config['BLOG_API_BASE_URL']
 
 def configure_request(app):
     global base_url
-    base_url = app.config['QUOTE_API_BASE_URL']
+    
 
 def get_quotes():
-    '''
-    Function that gets the json response to our url request
-    '''
+
+    get_movies_url = base_url
+  
     print(base_url)
 
     with urllib.request.urlopen(base_url) as url:
@@ -23,8 +25,8 @@ def get_quotes():
 
         if get_quotes_response:
             id=get_quotes_response.get('id')
-            id=get_quotes_response.get('author')
-            id=get_quotes_response.get('quote')
+            author=get_quotes_response.get('author')
+            quote=get_quotes_response.get('quote')
             quote_object = Quote(id,author,quote)
 
     return quote_object
