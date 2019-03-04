@@ -47,7 +47,7 @@ def comment(id):
     return render_template('comment.html',title = title, comment = comment)
 
 @main.route('/new_comment/<int:id>', methods = ['GET', 'POST'])
-@login_required
+# @login_required
 def new_comment(id):
     form = CommentForm()
 
@@ -115,7 +115,6 @@ def delcomment(id):
     title = 'delete comments'
     return render_template('delete.html',title = title, comment = comment)
 
-
 @main.route('/subscribe',methods=["GET","POST"])
 def subscriber():
     form=SubscriberForm()
@@ -126,7 +125,6 @@ def subscriber():
         db.session.commit()
 
         mail_message("Welcome to my blog","email/welcome_user",subscriber.email,subscriber=subscriber)
-        # flash('A confirmation by email has been sent to you by email')
         return redirect(url_for('main.index'))
         title = 'Subscribe'
     return render_template('subscription.html',form=form)
@@ -157,7 +155,4 @@ def edit_blog(id):
     form.blog.data = blog.blog
 
 
-    return render_template('new_blog.html',action = 'Edit',
-                           new_blog = new_blog,
-                           blog_form = form,
-                           legend='Update Post')
+    return render_template('new_blog.html',action = 'Edit',new_blog = new_blog,blog_form = form,legend='Update Post')
